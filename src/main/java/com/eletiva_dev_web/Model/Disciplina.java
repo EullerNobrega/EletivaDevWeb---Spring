@@ -1,4 +1,4 @@
-package com.renovai.Model;
+package com.eletiva_dev_web.Model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

@@ -1,12 +1,12 @@
-package com.renovai.Service;
+package com.eletiva_dev_web.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.renovai.Model.Aluno;
-import com.renovai.Repository.AlunoRepository;
+import com.eletiva_dev_web.Model.Aluno;
+import com.eletiva_dev_web.Repository.AlunoRepository;
 
 @Service
 public class AlunoService {

@@ -1,12 +1,12 @@
-package com.renovai.Service;
+package com.eletiva_dev_web.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.renovai.Model.Disciplina;
-import com.renovai.Repository.DisciplinaRepository;
+import com.eletiva_dev_web.Model.Disciplina;
+import com.eletiva_dev_web.Repository.DisciplinaRepository;
 
 @Service
 public class DisciplinaService {
@@ -33,10 +33,10 @@ public class DisciplinaService {
 		return ResponseEntity.ok(disciplinaRepository.findAll());
 
 	}
-	
-	public ResponseEntity<?> listarDisciplina(String matricula) {
 
-		return ResponseEntity.ok(disciplinaRepository.findById(matricula));
+	public ResponseEntity<?> consultarDisciplina(String codigo) {
+
+		return ResponseEntity.ok(disciplinaRepository.findById(codigo));
 
 	}
 
@@ -49,6 +49,16 @@ public class DisciplinaService {
 		}
 
 		return ResponseEntity.ok(disciplinaRepository.save(disciplina));
+	}
+
+	public ResponseEntity<?> removerDisciplina(String codigo) {
+		Disciplina disciplinaExist = disciplinaRepository.findById(codigo).orElse(null);
+
+		if (disciplinaExist == null) {
+			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).build();
+		}
+		disciplinaRepository.delete(disciplinaExist);
+		return ResponseEntity.ok(disciplinaExist);
 	}
 
 }
